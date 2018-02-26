@@ -7,8 +7,14 @@ import fr.pizzeria.model.Pizza;
 
 public class PizzaMemDao implements PizzaDao {
 
+	/**
+	 * creation d'une liste de pizzas
+	 */
 	private ArrayList<Pizza> pizzas;
 
+	/**
+	 * tableau des pizzas instancier
+	 */
 	public PizzaMemDao() {
 		pizzas = new ArrayList<Pizza>();
 		pizzas.add(new Pizza("PEP", "Pépéroni", 12.50));

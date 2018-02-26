@@ -2,9 +2,14 @@ package fr.pizzeria.console;
 
 import java.util.Scanner;
 
+import fr.pizzeria.exception.StockageException;
 import service.pizza.MenuService;
 import service.pizza.MenuServiceFactory;
 
+/**
+ * console possédent la méthode principal pour la création d'objet pizza
+ *
+ */
 public class PizzeriaConsole {
 
 	public static void main(String[] args) {
@@ -14,6 +19,10 @@ public class PizzeriaConsole {
 		Scanner sc = new Scanner(System.in);
 		int choix = 0;
 
+		/**
+		 * méthode permettant à l'utilisateur d'accéder à la méthode pour choisir,
+		 * modifier, supprimer, et lister les pizzas
+		 */
 		while (choix <= 99) {
 			if (choix != 99) {
 				System.out.println("*****Pizzeria Administration*****"); // menu dans la boucle
@@ -29,7 +38,12 @@ public class PizzeriaConsole {
 
 				MenuService m = MenuServiceFactory.renvoyerMenu(choix); // m menu
 
-				m.executeUC(dao);// dao nom de l'instance qui gère le tableau.
+				try {
+					m.executeUC(dao);
+				} catch (StockageException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} // dao nom de l'instance qui gère le tableau.
 			}
 
 			else {
