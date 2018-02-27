@@ -47,8 +47,8 @@ public class ModifierPizzaService extends MenuService {
 		String cat = sc.nextLine();
 		if (cat.isEmpty())
 			throw new UpdatePizzaException("le categorie est vide");
-		// else if (CategoriePizza.valueOf(cat) != categoriePizza)
-		// throw new UpdatePizzaException("la catégorie n'existe pas");
+		else if (CategoriePizza.valueOf(cat) == null)
+			throw new UpdatePizzaException("la catégorie n'existe pas");
 
 		CategoriePizza categoriePizza = CategoriePizza.valueOf(cat);
 
