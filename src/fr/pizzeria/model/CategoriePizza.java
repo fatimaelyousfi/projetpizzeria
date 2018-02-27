@@ -1,7 +1,8 @@
 package fr.pizzeria.model;
 
 public enum CategoriePizza {
-	VIANDE("Viande"), POISSON("Poisson"), SANS_VIANDE("Sans Viande");
+	VIANDE("Viande"), POISSON("Poisson"), SANS_VIANDE("Sans Viande"); // CategoriePizza VIANDE = new
+																		// CategoriePizza("Viande") ==> VIANDE("Viande")
 
 	private String value;
 

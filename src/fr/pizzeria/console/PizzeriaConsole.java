@@ -41,7 +41,7 @@ public class PizzeriaConsole {
 				try {
 					m.executeUC(dao);
 				} catch (StockageException e) {
-					System.err.println(e.getMessage());
+					System.err.println(e.getMessage()); // retourne le message d'erreur
 				} catch (IllegalArgumentException e) {
 					System.err.println(e.getMessage());
 				}

@@ -35,8 +35,8 @@ public class AjouterPizzaService extends MenuService {
 		String cat = sc.nextLine();
 		if (cat.isEmpty())
 			throw new SavePizzaException("le categorie est vide");
-		else if (CategoriePizza.valueOf(cat) != null)
-			throw new SavePizzaException("la catégorie n'existe pas");
+		// else if (CategoriePizza.valueOf(cat) != null)
+		// throw new SavePizzaException("la catégorie n'existe pas");
 
 		CategoriePizza categoriePizza = CategoriePizza.valueOf(cat); // categoriePizza de type CategoriePizza reçoit la
 																		// valeur de l'enum CategoriePizza
