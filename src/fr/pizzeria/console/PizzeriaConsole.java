@@ -10,6 +10,7 @@ import service.pizza.MenuServiceFactory;
  * console possédent la méthode principal pour la création d'objet pizza
  *
  */
+
 public class PizzeriaConsole {
 
 	public static void main(String[] args) {
@@ -37,13 +38,11 @@ public class PizzeriaConsole {
 				System.out.println("vous avez choisie le menu: " + choix);
 
 				MenuService m = MenuServiceFactory.renvoyerMenu(choix); // m menu
-
 				try {
 					m.executeUC(dao);
 				} catch (StockageException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				} // dao nom de l'instance qui gère le tableau.
+					System.out.println(e.getMessage());
+				}
 			}
 
 			else {
