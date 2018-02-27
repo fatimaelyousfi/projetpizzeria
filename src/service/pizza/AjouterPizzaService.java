@@ -13,35 +13,35 @@ public class AjouterPizzaService extends MenuService {
 
 	@Override
 	public void executeUC(PizzaMemDao pizzaDao) throws SavePizzaException {
-		System.out.println("Veuillez saisir le code: ");
-		String code1 = sc.nextLine();
 
-		if (code1.isEmpty()) {
+		System.out.println("Veuillez saisir un nouveaux code: "); // saissie du nouveaux code et s'il n'existe pas ->
+																	// exception
+		String newCode = sc.nextLine();
+		if (newCode.isEmpty())
 			throw new SavePizzaException("le code est vide");
-		} else if (!pizzaDao.pizzaExists(code1)) {
-			throw new SavePizzaException("la pizza n'existe pas");
-		}
 
-		System.out.println("Veuillez choisir le nom (sans espace): ");
-		String nom1 = sc.nextLine();
-		if (nom1.isEmpty())
+		System.out.println("Veuillez choisir le nom (sans espace): "); // de même pour le nom
+		String newNom = sc.nextLine();
+		if (newNom.isEmpty())
 			throw new SavePizzaException("le nom est vide");
 
-		System.out.println("Veuillez saisir le prix ");
-		String prix = sc.nextLine();
-		if (prix.isEmpty())
+		System.out.println("Veuillez saisir le prix "); // de mêm pour le prix
+		String newPrix = sc.nextLine();
+		if (newPrix.isEmpty())
 			throw new SavePizzaException("le prix est vide");
 
-		double prix1 = Double.parseDouble(prix);
+		double prix1 = Double.parseDouble(newPrix); // de même pour la catégorie
 		System.out.println("Veuillez saisir la catégorie");
 		String cat = sc.nextLine();
 		if (cat.isEmpty())
-			throw new SavePizzaException("le cotegorie est vide");
-		//
+			throw new SavePizzaException("le categorie est vide");
+		else if (CategoriePizza.valueOf(cat) != null)
+			throw new SavePizzaException("la catégorie n'existe pas");
 
-		CategoriePizza categoriePizza = CategoriePizza.valueOf(cat);
+		CategoriePizza categoriePizza = CategoriePizza.valueOf(cat); // categoriePizza de type CategoriePizza reçoit la
+																		// valeur de l'enum CategoriePizza
 
-		pizzaDao.saveNewPizza(new Pizza(code1, nom1, prix1, categoriePizza));
+		pizzaDao.saveNewPizza(new Pizza(newCode, newNom, prix1, categoriePizza)); // sauvegarde de la nouvelle Pizza
 
 	}
 

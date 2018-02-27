@@ -18,7 +18,8 @@ public class PizzaMemDao implements PizzaDao {
 	 */
 	public PizzaMemDao() {
 		pizzas = new ArrayList<Pizza>();
-		pizzas.add(new Pizza("PEP", "Pépéroni", 12.50, CategoriePizza.VIANDE));
+		pizzas.add(new Pizza("PEP", "Pépéroni", 12.50, CategoriePizza.VIANDE)); // affichage de l'enum CategoriePizza
+																				// avec nomClasse.enum
 		pizzas.add(new Pizza("MAR", "Margherita", 14.00, CategoriePizza.SANS_VIANDE));
 		pizzas.add(new Pizza("REIN", "La Reine", 11.50, CategoriePizza.VIANDE));
 		pizzas.add(new Pizza("FRO", "La 4 fromages", 12.00, CategoriePizza.SANS_VIANDE));

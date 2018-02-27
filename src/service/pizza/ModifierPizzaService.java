@@ -46,11 +46,14 @@ public class ModifierPizzaService extends MenuService {
 		System.out.println("Veuillez saisir la catégorie");
 		String cat = sc.nextLine();
 		if (cat.isEmpty())
-			throw new UpdatePizzaException("le codetegorie est vide");
+			throw new UpdatePizzaException("le categorie est vide");
+		else if (CategoriePizza.valueOf(cat) != null)
+			throw new UpdatePizzaException("la catégorie n'existe pas");
 
 		CategoriePizza categoriePizza = CategoriePizza.valueOf(cat);
 
-		pizzaDao.updatePizza(modifCode, (new Pizza(newCode, newNom, prix, categoriePizza)));
+		pizzaDao.updatePizza(modifCode, (new Pizza(newCode, newNom, prix, categoriePizza))); // creation de la nouvelle
+																								// Pizza
 
 	}
 

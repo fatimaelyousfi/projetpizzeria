@@ -13,4 +13,5 @@ public enum CategoriePizza {
 		return value;
 
 	}
+
 }
