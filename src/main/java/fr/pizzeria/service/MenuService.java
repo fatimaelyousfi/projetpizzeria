@@ -1,5 +1,6 @@
-package service.pizza;
+package fr.pizzeria.service;
 
+import fr.pizzeria.console.PizzaDao;
 import fr.pizzeria.console.PizzaMemDao;
 import fr.pizzeria.exception.StockageException;
 
@@ -11,7 +12,7 @@ public abstract class MenuService {
 	 * @param pizzaDao
 	 * @throws StockageException
 	 */
-	public abstract void executeUC(PizzaMemDao pizzaDao) throws StockageException; // throws permet au menu de gerer les
+	public abstract void executeUC(PizzaDao pizzaDao) throws StockageException; // throws permet au menu de gerer les
 																					// exceptions définit dans
 																					// StockageException.
 

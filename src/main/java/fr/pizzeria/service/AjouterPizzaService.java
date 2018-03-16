@@ -1,18 +1,20 @@
-package service.pizza;
+package fr.pizzeria.service;
 
 import java.util.Scanner;
 
+import fr.pizzeria.console.PizzaDao;
 import fr.pizzeria.console.PizzaMemDao;
 import fr.pizzeria.exception.SavePizzaException;
 import fr.pizzeria.model.CategoriePizza;
 import fr.pizzeria.model.Pizza;
+import org.apache.commons.lang.math.NumberUtils;
 
 public class AjouterPizzaService extends MenuService {
 
 	Scanner sc = new Scanner(System.in);
 
 	@Override
-	public void executeUC(PizzaMemDao pizzaDao) throws SavePizzaException {
+	public void executeUC(PizzaDao pizzaDao) throws SavePizzaException {
 
 		System.out.println("Veuillez saisir un nouveaux code: "); // saissie du nouveaux code et s'il n'existe pas ->
 																	// exception
@@ -25,10 +27,12 @@ public class AjouterPizzaService extends MenuService {
 		if (newNom.isEmpty())
 			throw new SavePizzaException("le nom est vide");
 
-		System.out.println("Veuillez saisir le prix "); // de mêm pour le prix
+		System.out.println("Veuillez saisir le prix "); // de même pour le prix
 		String newPrix = sc.nextLine();
 		if (newPrix.isEmpty())
 			throw new SavePizzaException("le prix est vide");
+		if(!NumberUtils.isNumber(newPrix))
+			throw new SavePizzaException("le prix doit être un double");
 
 		double prix1 = Double.parseDouble(newPrix); // de même pour la catégorie
 		System.out.println("Veuillez saisir la catégorie");
@@ -37,7 +41,10 @@ public class AjouterPizzaService extends MenuService {
 			throw new SavePizzaException("le categorie est vide");
 		else if (CategoriePizza.valueOf(cat) == null)
 			throw new SavePizzaException("la catégorie n'existe pas");
-
+		
+		
+		
+		
 		CategoriePizza categoriePizza = CategoriePizza.valueOf(cat); // categoriePizza de type CategoriePizza reçoit la
 																		// valeur de l'enum CategoriePizza
 

@@ -1,4 +1,4 @@
-package service.pizza;
+package fr.pizzeria.service;
 
 public class MenuServiceFactory {
 

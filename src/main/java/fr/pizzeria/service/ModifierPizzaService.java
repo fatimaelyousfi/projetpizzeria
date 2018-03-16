@@ -1,7 +1,8 @@
-package service.pizza;
+package fr.pizzeria.service;
 
 import java.util.Scanner;
 
+import fr.pizzeria.console.PizzaDao;
 import fr.pizzeria.console.PizzaMemDao;
 import fr.pizzeria.exception.UpdatePizzaException;
 import fr.pizzeria.model.CategoriePizza;
@@ -12,8 +13,10 @@ public class ModifierPizzaService extends MenuService {
 	Scanner sc = new Scanner(System.in);
 
 	@Override
-	public void executeUC(PizzaMemDao pizzaDao) throws UpdatePizzaException {
+	public void executeUC(PizzaDao pizzaDao) throws UpdatePizzaException {
 		System.out.println("Mises à jour d'une pizza");
+		if (pizzaDao.findAllPizzas() == null)
+			throw new UpdatePizzaException("la liste est null");
 		for (int i = 0; i < pizzaDao.findAllPizzas().size(); i++) {
 			if (pizzaDao.findAllPizzas() != null)
 				System.out.println(pizzaDao.findAllPizzas().get(i));

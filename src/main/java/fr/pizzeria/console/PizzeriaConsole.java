@@ -2,9 +2,10 @@ package fr.pizzeria.console;
 
 import java.util.Scanner;
 
+import fr.pizzeria.dao.PizzaMemDaoJdbc;
 import fr.pizzeria.exception.StockageException;
-import service.pizza.MenuService;
-import service.pizza.MenuServiceFactory;
+import fr.pizzeria.service.MenuService;
+import fr.pizzeria.service.MenuServiceFactory;
 
 /**
  * console possédent la méthode principal pour la création d'objet pizza
@@ -15,7 +16,7 @@ public class PizzeriaConsole {
 
 	public static void main(String[] args) {
 
-		PizzaMemDao dao = new PizzaMemDao();
+		PizzaDao dao = new PizzaMemDaoJdbc();
 
 		Scanner sc = new Scanner(System.in);
 		int choix = 0;

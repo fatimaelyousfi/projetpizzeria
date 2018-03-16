@@ -3,6 +3,7 @@ package fr.pizzeria.console;
 import java.util.ArrayList;
 import java.util.List;
 
+import fr.pizzeria.exception.UpdatePizzaException;
 import fr.pizzeria.model.CategoriePizza;
 import fr.pizzeria.model.Pizza;
 
@@ -29,22 +30,24 @@ public class PizzaMemDao implements PizzaDao {
 		pizzas.add(new Pizza("IND", "L’indienne", 14.00, CategoriePizza.POISSON));
 	}
 
+	
 	@Override
 	public List<Pizza> findAllPizzas() {
 		return pizzas;
+		
 	}
 
 	@Override
 	public void saveNewPizza(Pizza pizza) {
 		pizzas.add(pizza);
+		
 	}
-
 	@Override
 	public void updatePizza(String codePizza, Pizza pizza) {
 		pizzas.set(pizzas.indexOf(findPizzaByCode(codePizza)), pizza);
 
 	}
-
+	
 	@Override
 	public void deletePizza(String codePizza) {
 		pizzas.remove(pizzas.indexOf(findPizzaByCode(codePizza)));
@@ -62,7 +65,6 @@ public class PizzaMemDao implements PizzaDao {
 
 	}
 
-	@Override
 	public boolean pizzaExists(String codePizza) {
 		if (findPizzaByCode(codePizza) != null)
 			return true;
